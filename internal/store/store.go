@@ -13,12 +13,14 @@ type Store struct {
 }
 
 func New() (*Store, error) {
-	var err error
+	// var err error
 	store := &Store{}
 	store.Config = config.New()
+	/* generate a database connection
 	store.DB, err = sqlx.Connect("postgres", "")
 	if err != nil {
 		return nil, err
 	}
+	*/
 	return store, nil
 }

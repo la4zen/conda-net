@@ -1,7 +1,21 @@
 package routes
 
-import "github.com/labstack/echo"
+import (
+	"github.com/la4zen/conda-net/internal/store"
+	"github.com/labstack/echo"
+)
 
-func Set(e *echo.Echo) {
-	e.POST("/api/login", Login)
+type Routes struct {
+	store *store.Store
+}
+
+func New(store *store.Store) *Routes {
+	return &Routes{
+		store: store,
+	}
+}
+
+func Set(e *echo.Echo, routes *Routes) error {
+	e.POST("/api/login", routes.Login)
+	return nil
 }

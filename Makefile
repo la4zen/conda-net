@@ -1,4 +1,4 @@
 
 
 build:
-	go build ./cmd/app/main.go
+	go build -v ./cmd/app/main.go 

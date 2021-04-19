@@ -5,9 +5,9 @@ import (
 )
 
 type UserRepo interface {
-	CreateUser(*model.User) (*model.User, error)
-	SetOnlineUser(*model.User) error
-	UpdateUser(*model.User) (*model.User, error)
-	DeleteUser(*model.User) error
-	GetUser(*model.User) (*model.User, error)
+	CreateUser(*model.User) (*model.User, int, error)
+	SetOnlineUser(*model.User) (int, error)
+	UpdateUser(*model.User) (*model.User, int, error)
+	DeleteUser(*model.User) (int, error)
+	GetUser(*model.User) (*model.User, int, error)
 }

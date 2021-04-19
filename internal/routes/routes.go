@@ -17,5 +17,6 @@ func New(store *store.Store) *Routes {
 
 func Set(e *echo.Echo, routes *Routes) error {
 	e.POST("/api/login", routes.Login)
+	e.POST("/api/register", routes.Register)
 	return nil
 }

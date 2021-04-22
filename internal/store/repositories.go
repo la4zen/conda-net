@@ -6,8 +6,8 @@ import (
 
 type UserRepo interface {
 	CreateUser(*model.User) *model.Response
-	SetOnlineUser(*model.User) *model.Response
-	UpdateUser(*model.User) *model.Response
 	FindUser(*model.User) *model.Response
 	GetUser(*model.User) *model.Response
+	Clean(*model.User)
+	AddFriend(*model.Friend) *model.Response
 }

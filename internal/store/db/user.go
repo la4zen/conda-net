@@ -57,15 +57,3 @@ func (r *UserDBRepo) FindUser(user *model.User) *model.Response {
 		Err:  errors.New("user not found"),
 	}
 }
-
-func (r *UserDBRepo) UpdateUser(user *model.User) *model.Response {
-	return nil
-}
-
-func (r *UserDBRepo) SetOnlineUser(user *model.User) *model.Response {
-	return nil
-}
-
-func (r *UserDBRepo) Clean(user *model.User) {
-	user.Password = ""
-}

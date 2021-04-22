@@ -25,7 +25,7 @@ func New() (*Store, error) {
 	if err != nil {
 		return nil, err
 	}
-	store.DB.AutoMigrate(&model.User{})
+	store.DB.AutoMigrate(&model.User{}, &model.Friend{})
 	store.User = db.NewUserRepo(store.DB)
 	return store, nil
 }

@@ -51,20 +51,3 @@ func (r *Routes) Register(c echo.Context) error {
 		"token": token,
 	})
 }
-
-func (r *Routes) GetUser(c echo.Context) error {
-	user := &model.User{}
-	c.Bind(&user)
-	if util.VerifyToken(user, c.Request().Header.Get("Authorization")) != nil {
-		if user.ID == 0 || user.Login == "" {
-			return c.String(400, "id or login required")
-		}
-	}
-	response := r.store.User.GetUser(user)
-	if response.Err != nil {
-		return c.String(response.Code, response.Err.Error())
-	}
-	return c.JSON(response.Code, map[string]interface{}{
-		"user": user,
-	})
-}

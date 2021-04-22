@@ -1,6 +1,7 @@
 package util
 
 import (
+	"strings"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
@@ -24,7 +25,8 @@ func CreateToken(user *model.User) (string, error) {
 	return tokenString, nil
 }
 
-func VerifyToken(user *model.User, tokenString string) error {
+func VerifyToken(user *model.User, tokenHeader string) error {
+	tokenString := strings.Split(tokenHeader, " ")[1]
 	claims := &model.Claims{}
 	_, err := jwt.ParseWithClaims(tokenString, claims, func(t *jwt.Token) (interface{}, error) {
 		return key, nil

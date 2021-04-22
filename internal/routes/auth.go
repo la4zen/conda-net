@@ -11,14 +11,22 @@ import (
 func (r *Routes) Login(c echo.Context) error {
 	user := new(model.User)
 	c.Bind(&user)
-	if user.Login == "" || user.Password == "" {
+	if !util.CheckFields(user.Login) {
 		return c.String(400, "login and password required")
 	}
-	user, code, err := r.store.User.GetUser(user)
-	if err != nil {
-		return c.String(code, err.Error())
+	util.MD5Password(&user.Password)
+	response := r.store.User.FindUser(user)
+	if response.Err != nil {
+		return c.String(response.Code, response.Err.Error())
 	}
-	return c.JSON(code, user)
+	token, err := util.CreateToken(user)
+	if err != nil {
+		return c.String(500, err.Error())
+	}
+	return c.JSON(response.Code, map[string]interface{}{
+		"user":  user,
+		"token": token,
+	})
 }
 
 func (r *Routes) Register(c echo.Context) error {
@@ -26,13 +34,37 @@ func (r *Routes) Register(c echo.Context) error {
 		LastLogin: time.Now(),
 	}
 	c.Bind(&user)
-	if !util.AllTrue(user.FirstName, user.LastName, user.Login, user.Password) {
+	if !util.CheckFields(user.FirstName, user.LastName, user.Login, user.Password) {
 		return c.String(400, "all fields required")
 	}
 	util.MD5Password(&user.Password)
-	user, code, err := r.store.User.CreateUser(user)
-	if err != nil {
-		return c.String(code, err.Error())
+	response := r.store.User.CreateUser(user)
+	if response.Err != nil {
+		return c.String(response.Code, response.Err.Error())
 	}
-	return c.JSON(code, user)
+	token, err := util.CreateToken(user)
+	if err != nil {
+		return c.String(500, err.Error())
+	}
+	return c.JSON(response.Code, map[string]interface{}{
+		"user":  user,
+		"token": token,
+	})
+}
+
+func (r *Routes) GetUser(c echo.Context) error {
+	user := &model.User{}
+	c.Bind(&user)
+	if util.VerifyToken(user, c.Request().Header.Get("Authorization")) != nil {
+		if user.ID == 0 || user.Login == "" {
+			return c.String(400, "id or login required")
+		}
+	}
+	response := r.store.User.GetUser(user)
+	if response.Err != nil {
+		return c.String(response.Code, response.Err.Error())
+	}
+	return c.JSON(response.Code, map[string]interface{}{
+		"user": user,
+	})
 }

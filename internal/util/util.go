@@ -10,9 +10,9 @@ func MD5Password(pass *string) {
 	*pass = hex.EncodeToString(hash[:])
 }
 
-func AllTrue(args ...interface{}) bool {
+func CheckFields(args ...interface{}) bool {
 	for _, arg := range args {
-		if arg == "" {
+		if arg == "" || arg == 0 {
 			return false
 		}
 	}

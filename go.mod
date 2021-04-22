@@ -3,6 +3,7 @@ module github.com/la4zen/conda-net
 go 1.16
 
 require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/labstack/echo v3.3.10+incompatible
 	github.com/labstack/gommon v0.3.0 // indirect
 	github.com/lib/pq v1.10.0

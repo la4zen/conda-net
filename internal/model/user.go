@@ -13,5 +13,4 @@ type User struct {
 	Login     string    `json:"login,omitempty"`
 	Password  string    `json:"password,omitempty"`
 	LastLogin time.Time `json:"last_login,omitempty" gorm:"type:time"`
-	RegIp     string    `json:"reg_ip,omitempty"`
 }

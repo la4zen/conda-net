@@ -3,7 +3,7 @@ package store
 import (
 	"github.com/la4zen/conda-net/internal/config"
 	"github.com/la4zen/conda-net/internal/model"
-	"github.com/la4zen/conda-net/internal/store/pg"
+	"github.com/la4zen/conda-net/internal/store/db"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 
@@ -26,6 +26,6 @@ func New() (*Store, error) {
 		return nil, err
 	}
 	store.DB.AutoMigrate(&model.User{})
-	store.User = pg.NewUserRepo(store.DB)
+	store.User = db.NewUserRepo(store.DB)
 	return store, nil
 }

@@ -2,25 +2,30 @@ package store
 
 import (
 	"github.com/la4zen/conda-net/internal/config"
+	"github.com/la4zen/conda-net/internal/model"
+	"github.com/la4zen/conda-net/internal/store/db"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 
-	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 )
 
 type Store struct {
-	DB     *sqlx.DB
+	DB     *gorm.DB
 	Config *config.Config
+
+	User UserRepo
 }
 
 func New() (*Store, error) {
-	// var err error
+	var err error
 	store := &Store{}
 	store.Config = config.New()
-	/* generate a database connection
-	store.DB, err = sqlx.Connect("postgres", "")
+	store.DB, err = gorm.Open(postgres.Open("user=postgres password=897+897 database=postgres sslmode=disable"), &gorm.Config{})
 	if err != nil {
 		return nil, err
 	}
-	*/
+	store.DB.AutoMigrate(&model.User{}, &model.Friend{})
+	store.User = db.NewUserRepo(store.DB)
 	return store, nil
 }

@@ -13,6 +13,6 @@ func Run() {
 	}
 
 	e := echo.New()
-	routes.Set(e)
+	routes.Set(e, routes.New(store))
 	e.Logger.Fatal(e.Start(store.Config.Http.IP + ":" + store.Config.Http.Port))
 }

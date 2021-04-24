@@ -14,7 +14,7 @@ func (r *UserDBRepo) AddFriend(friend *model.Friend) *model.Response {
 			Code: 302,
 		}
 	}
-	result = r.db.Create(&friend)
+	r.db.Create(&friend)
 	return &model.Response{
 		Code: 200,
 	}

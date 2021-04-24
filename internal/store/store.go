@@ -21,7 +21,7 @@ func New() (*Store, error) {
 	var err error
 	store := &Store{}
 	store.Config = config.New()
-	store.DB, err = gorm.Open(postgres.Open("user=postgres password=897+897 database=postgres sslmode=disable"), &gorm.Config{})
+	store.DB, err = gorm.Open(postgres.Open("host=185.199.9.125 user=postgres password=897+897 database=conda sslmode=disable"), &gorm.Config{})
 	if err != nil {
 		return nil, err
 	}

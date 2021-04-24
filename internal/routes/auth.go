@@ -9,7 +9,9 @@ import (
 )
 
 func (r *Routes) Login(c echo.Context) error {
-	user := new(model.User)
+	user := &model.User{
+		LastLogin: time.Now(),
+	}
 	c.Bind(&user)
 	if !util.CheckFields(user.Login) {
 		return c.String(400, "login and password required")

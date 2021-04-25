@@ -1,0 +1,32 @@
+ body {
+     background-color: gray;
+ }
+
+* {
+  margin: 0 auto;
+}
+
+.border {
+    background-color: #C0C0C0;
+    padding: 15px;
+    border: 2px solid black;
+    height: 1032px;
+    width: 800px;
+    position: relative;
+    left: 15px;
+    font-size: 23px;
+    border-style: none solid none solid;
+    letter-spacing: 2px;
+    line-height: 50px;
+}
+
+hr {
+    position: relative;
+    top: -1000px;
+    left: 15px;
+    width: 830px;
+    height: 3px;
+    background-color: black;
+    border: none;
+}
+

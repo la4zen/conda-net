@@ -1,8 +1,50 @@
+body {
+    background-color: gray;
+}
+
+* {
+    margin : 0 auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .auth {
-    border-radius: 15px;
+    border-radius: 20px;
     border : 3px solid black;
     padding: 15px;
     display: inline-block;
-    width: 300px;
+    height: 95px;
+    width: 350px;
     text-align: center;
+    background-color: #C0C0C0;
+    border: none;
+    position: relative;
+    top: 320px;
+    box-shadow: 2px 2px 5px black;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+input {
+    border-radius: 20px ;
+    border: none;
+    box-shadow: 2px 2px 5px black;
+    font-size: 13px;
+}
+
+.button {
+    position: relative;
+    top: 18px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 120px;
+    height: 30px;
+}
+
+input:focus {
+    transform: translateX(10px);
+}
+
+.button:hover {
+    transform: translateY(3px);
 }

@@ -1,8 +1,53 @@
+* {
+margin: 0 auto;
+font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: gray;
+}
+/* Рамка и т.д */
 .auth {
-    border-radius: 15px;
+    border-radius: 20px;
     border : 3px solid black;
     padding: 15px;
     display: inline-block;
-    width: 300px;
+    width: 350px;
+    height: 180px;
     text-align: center;
+    background-color: #C0C0C0;
+    border: none;
+    font-size: 18px;
+    position: relative;
+    top: 320px;
+    box-shadow: 2px 2px 5px black;
+    font-weight: normal;
+}
+/* Поле ввода*/
+input {
+    border-radius: 20px;
+    border: none;
+    width: 170px;
+    box-shadow: 2px 2px 5px black;
+    font-size:13px;
+
+}
+
+.button {
+position: relative;
+top: 20px;
+cursor: pointer;
+box-shadow: 2px 2px 5px black;
+width: 120px;
+height: 30px;
+font-weight: bold;
+font-size: 14px;
+}
+
+input:focus {
+    transform: translateX(10px);
+}
+
+.button:hover {
+    transform: translateY(3px);
 }

@@ -2,21 +2,19 @@
 <html lang="ru,en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" lang="ru" content=" описание">
-  <meta name="description" lang="en" content="opisasnie">
-  <meta name="keywords" lang="ru" content="ключевые слова">
-  <meta name="keywords" lang="en" content="key words">
   <meta name="robots" content="index, follow">
   <meta name="viewport" content="device=width-width, initial-scale=1.0">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://unpkg.com/vue@next"></script>
-  <script src="js/main.js"></script>
-  <link href="main.css" rel="stylesheet">
+  <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+  <script src="/js/main.js"></script>
+  <link href="/main.css" rel="stylesheet">
   <title>Profile</title>
 </head>
   <body>
     <div class="border">
       {{ user.first_name }} {{ user.last_name }} <br>
+      Был в сети {{ getTime() }}
     </div>
   </body>
 </html>

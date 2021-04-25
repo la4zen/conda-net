@@ -30,14 +30,10 @@ window.onload = function () {
                             first_name : this.first_name,
                             last_name : this.last_name
                     })}).then((response) => {
-                        if (response.status != 200) {
-                            alert("Error")
-                        } else {
-                            localStorage.setItem("token", response.data.token)
-                            localStorage.setItem("user", response.data.user)
-                            location.href = "http://la4z.xyz"
-                        }
+                        localStorage.setItem("token", response.data.token)
+                        location.href = "http://la4z.xyz"
                     }).catch(err => {
+                        console.log(err)
                         alert(err.response.data)
                     })
                 } else {
@@ -56,14 +52,9 @@ window.onload = function () {
                             login:this.login,
                             password:this.password
                         })
-                    }).then(response => {console.log(response)
-                        if (response.code != 200) {
-                            alert("Error")
-                        } else {
-                            localStorage.setItem("token", response.data.token)
-                            localStorage.setItem("user", response.data.user)
-                            location.href = "http://la4z.xyz"
-                        }
+                    }).then(response => {
+                        localStorage.setItem("token", response.data.token)
+                        location.href = "http://la4z.xyz"
                     }).catch(err => {
                         alert(err.response.data)
                     })

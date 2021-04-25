@@ -2,7 +2,12 @@ window.onload = function() {
     Vue.createApp({
         data() {
             return {
-                user:localStorage.getItem("user")
+                user: {
+                    login : null,
+                    first_name : null,
+                    last_name : null,
+                    last_login : null
+                }
             }
         },
         created() {
@@ -23,6 +28,11 @@ window.onload = function() {
                     this.user = response.data.user
                 }
             })
+        },
+        methods : {
+            getTime : function () {
+                return moment(Date.parse(this.user.last_login)).locale("ru").fromNow()
+            }
         }
     }).mount("body")
 }

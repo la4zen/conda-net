@@ -2,17 +2,14 @@ package routes
 
 import (
 	"github.com/la4zen/conda-net/internal/model"
-	"github.com/la4zen/conda-net/internal/util"
 	"github.com/labstack/echo"
 )
 
 func (r *Routes) GetUser(c echo.Context) error {
 	user := &model.User{}
 	c.Bind(&user)
-	if util.VerifyToken(user, c.Request().Header.Get("Authorization")) != nil {
-		if user.ID == 0 || user.Login == "" {
-			return c.String(400, "id or login required")
-		}
+	if user.ID == 0 || user.Login == "" {
+		return c.String(400, "id or login required")
 	}
 	response := r.store.User.GetUser(user)
 	if response.Err != nil {

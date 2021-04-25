@@ -21,7 +21,7 @@ type Config struct {
 func New() *Config {
 	return &Config{
 		Http: Http{
-			IP:   "127.0.0.1",
+			IP:   "0.0.0.0",
 			Port: "8000",
 		},
 		Database: Database{

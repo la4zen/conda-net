@@ -1,10 +1,11 @@
 package routes
 
 import (
+	"strconv"
 	"time"
 
+	"github.com/dgrijalva/jwt-go"
 	"github.com/la4zen/conda-net/internal/model"
-	"github.com/la4zen/conda-net/internal/util"
 	"github.com/labstack/echo"
 )
 
@@ -14,11 +15,12 @@ func (r *Routes) FriendRequest(c echo.Context) error {
 		LastLogin: time.Now(),
 	}
 	c.Bind(&friend)
-	if util.VerifyToken(user, c.Request().Header.Get("Authorization")) != nil {
-		return c.NoContent(401)
-	}
+	u := c.Get("user").(*jwt.Token)
+	claims := u.Claims.(jwt.MapClaims)
+	id, _ := strconv.Atoi(claims["id"].(string))
+	user.ID = uint(id)
 	if friend.FromUser == user.ID {
-		return c.String(400, "you dont add yourself")
+		return c.String(400, "you cannot add yourself")
 	}
 	friend.FromUser = user.ID
 	response := r.store.User.AddFriend(friend)

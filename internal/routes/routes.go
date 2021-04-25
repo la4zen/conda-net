@@ -24,6 +24,6 @@ func Set(e *echo.Echo, routes *Routes) error {
 	a.Use(middleware.JWT(util.Key))
 	a.POST("/accessible", routes.Accessible)
 	a.POST("/get", routes.GetUser)
-	a.POST("/api/friend/add", routes.FriendRequest)
+	a.POST("/friend/add", routes.FriendRequest)
 	return nil
 }

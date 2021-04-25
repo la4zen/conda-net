@@ -12,7 +12,6 @@ func Run() {
 	if err != nil {
 		panic(err)
 	}
-
 	e := echo.New()
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 		AllowOrigins: []string{"*"},

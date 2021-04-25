@@ -30,31 +30,33 @@ window.onload = function () {
                             first_name : this.first_name,
                             last_name : this.last_name
                     })}).then((response) => {
-                            if (response.status != 200) {
-                                alert("Error")
-                            } else {
-                                localStorage.setItem("token", response.data.token)
-                                localStorage.setItem("user", response.data.user)
-                                location.href = "http://la4z.xyz"
-                            }
-                        })
+                        if (response.status != 200) {
+                            alert("Error")
+                        } else {
+                            localStorage.setItem("token", response.data.token)
+                            localStorage.setItem("user", response.data.user)
+                            location.href = "http://la4z.xyz"
+                        }
+                    }).catch(err => {
+                        alert(err.response.data)
+                    })
                 } else {
                     alert("Заполните все поля!")
                 }
             },
             auth : function () {
-                if (this.login && this.password && this.first_name && this.last_name) {
+                if (this.login && this.password) {
                     axios({
                         method:"POST",
                         headers: {
                             'Content-Type': 'application/json'
                         },
                         url : "http://la4z.xyz:8000/api/login",
-                        json:{
+                        data: JSON.stringify({
                             login:this.login,
                             password:this.password
-                        }
-                    }).then((response) => {
+                        })
+                    }).then(response => {console.log(response)
                         if (response.code != 200) {
                             alert("Error")
                         } else {
@@ -62,6 +64,8 @@ window.onload = function () {
                             localStorage.setItem("user", response.data.user)
                             location.href = "http://la4z.xyz"
                         }
+                    }).catch(err => {
+                        alert(err.response.data)
                     })
                 } else {
                     alert("Заполните все поля!")

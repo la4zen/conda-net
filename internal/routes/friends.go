@@ -14,7 +14,7 @@ func (r *Routes) FriendRequest(c echo.Context) error {
 	user := &model.User{
 		LastLogin: time.Now(),
 	}
-	c.Bind(&friend)
+	c.Bind(friend)
 	u := c.Get("user").(*jwt.Token)
 	claims := u.Claims.(jwt.MapClaims)
 	id, _ := strconv.Atoi(claims["id"].(string))

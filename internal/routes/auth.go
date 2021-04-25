@@ -12,7 +12,7 @@ func (r *Routes) Login(c echo.Context) error {
 	user := &model.User{
 		LastLogin: time.Now(),
 	}
-	c.Bind(&user)
+	c.Bind(user)
 	if !util.CheckFields(user.Login) {
 		return c.String(400, "login and password required")
 	}
@@ -35,7 +35,7 @@ func (r *Routes) Register(c echo.Context) error {
 	user := &model.User{
 		LastLogin: time.Now(),
 	}
-	c.Bind(&user)
+	c.Bind(user)
 	if !util.CheckFields(user.FirstName, user.LastName, user.Login, user.Password) {
 		return c.String(400, "all fields required")
 	}

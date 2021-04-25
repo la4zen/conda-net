@@ -2,27 +2,19 @@
 <meta charset="UTF-8">
 <html lang="ru,en">
 <head>
-<link href="main.css" rel="stylesheet">
-<title>Authorization</title>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://unpkg.com/vue@next"></script>
-<script src="../js/auth.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+    <title>Authorization</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="../js/auth.js"></script>
 </head>
 <body>
-    <form action="">
-        <h1>Регистрация</h1>
-        <div class="group"> 
-            <label for="">Логин:</label>
-             <input type="name" v-model="login">
-        <div>
-            <label for="">Пароль:</label>
-             <input type="name" v-model="password">
+    <center>
+        <div class="auth">
+            Login : <input v-model="login">
+            Password : <input type="password" v-model="password"><br>
+            <input type="button" value="Auth" v-on:click="auth">
         </div>
-        <div class="group">
-           <button v-on:click="auth">Авторизация</button>
-        </div>
-    </form>
+    </center>
 </body>
-</html>

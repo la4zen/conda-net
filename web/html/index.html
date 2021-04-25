@@ -8,14 +8,15 @@
   <meta name="keywords" lang="en" content="key words">
   <meta name="robots" content="index, follow">
   <meta name="viewport" content="device=width-width, initial-scale=1.0">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="js/main.js"></script>
   <link href="main.css" rel="stylesheet">
-<title>Stranica</title>
+  <title>Profile</title>
 </head>
-<body>
-<div class="border">
-Имя фамилия <br>
-Когда был в сети
-</div>
-<hr>
-</body>
+  <body>
+    <div class="border">
+      {{ user.first_name }} {{ user.last_name }} <br>
+    </div>
+  </body>
 </html>

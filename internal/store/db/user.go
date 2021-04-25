@@ -53,7 +53,7 @@ func (r *UserDBRepo) FindUser(user *model.User) *model.Response {
 		}
 	}
 	return &model.Response{
-		Code: 404,
+		Code: 401,
 		Err:  errors.New("user not found"),
 	}
 }

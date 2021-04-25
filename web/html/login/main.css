@@ -1,82 +1,8 @@
-body{
-    font-family: 'Montserrat', sans-serif;
-    background-color: gray;
-}
-
-* {
-    margin: 0;
-}
-/* Заголовок */
-h1 {
-    text-align: center;
-   font-weight: 650;
-   padding: 5px;
-}
-/* табличка*/
-form {
-    background-color: #C0C0C0;
-    width: 20%;
-    height: 280px;
-    position: relative;
-    left: 40%;
-    top: 350px;
-    margin: 0 ;
-    border-radius: 25px;
-}
-
-.group {
-    padding: 5px;
-}
-/* Сам текст*/
-label {
-    position: relative;
-    left: 23%;
-    font-weight: normal;
-    padding-left: 10px;
-    text-transform: uppercase;
-}
-/* Пароль*/
-span {
-    position: relative;
-    left: 15%;
-}
-/* Поле ввода*/
-input {
-    position: relative;
-    left: 15%;
-    height: 23px;
-    width: 250px;
-    border-radius: 20px/20px;
-    border: none;
-    outline: none;
-    padding-left: 15px;
-    font-size: 18px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
-    
-}
-/* Кнопка */
-button {
-    height: 48px;
-    width: 133px;
-    position: relative;
-    left: 33%;
-    top: 19px;
+.auth {
     border-radius: 15px;
-    background-color: gray;
-    color: white;
-    border: none;
-    font-size: 92%;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
-    cursor: pointer;
-    font-weight: bold;
-     
-}
-/* Эффект кнопки*/
-button:hover {
-    transform: translateY(3px);
-}
-/* Эффект поле ввода */
-input:focus {
- transform: translateY(4px);
-
+    border : 3px solid black;
+    padding: 15px;
+    display: inline-block;
+    width: 300px;
+    text-align: center;
 }

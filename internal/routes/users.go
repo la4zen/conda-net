@@ -7,7 +7,7 @@ import (
 
 func (r *Routes) GetUser(c echo.Context) error {
 	user := &model.User{}
-	c.Bind(&user)
+	c.Bind(user)
 	if user.ID == 0 || user.Login == "" {
 		return c.String(400, "id or login required")
 	}

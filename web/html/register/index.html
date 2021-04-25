@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html lang="ru,en">
+<head>
+<link href="main.css" rel="stylesheet">
+<title>Registration</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="../js/auth.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <form action="">
+        <h1>Регистрация</h1>
+        <div class="group"> 
+            <label for="">Логин:</label>
+             <input type="name" v-model="login">
+        </div>
+        <div class="group"> 
+            <label for="">Имя:</label>
+             <input type="name" v-model="first_name">
+        </div>
+        <div class="group"> 
+            <label for="">Фамилия:</label>
+             <input type="name" v-model="last_name">
+        </div>
+        <div class="group"> 
+            <label for="">Пароль:</label>
+             <input type="name" v-model="password">
+        </div>
+        <div class="group">
+            <label for="">ПОВТОРИТЕ ПАРОЛЬ:</label>
+            <input type="password" v-model="confirmPassword">
+        </div>
+        <div class="group">
+           <input type="button" value="Password" v-on:click="register"/>
+        </div>
+    </form>
+</body>
+</html>
